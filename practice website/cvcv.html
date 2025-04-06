@@ -1,0 +1,75 @@
+from matplotlib import pyplot as plt
+import matplotlib.dates as mdates
+import pandas as pd
+from datetime import datetime
+
+# Data for the special children care app project timeline
+tasks = [
+    "Project Planning",
+    "Requirement Finalization",
+    "System Design",
+    "Frontend Development",
+    "Backend Development Phase 1",
+    "Backend Development Phase 2",
+    "Feature Integration",
+    "Testing Phase 1",
+    "User Acceptance Testing",
+    "Optimization and Bug Fixing",
+    "Pilot Deployment",
+    "Final Deployment & Closure",
+]
+
+start_dates = [
+    "week-1",
+    "202",
+    "2025-01-01",
+    "2025-02-01",
+    "2025-02-01",
+    "2025-05-01",
+    "2025-06-01",
+    "2025-07-01",
+    "2025-08-01",
+    "2025-09-01",
+    "2025-10-01",
+    "2025-11-01",
+]
+
+end_dates = [
+    "week-2",
+    "2025-01-31",
+    "2025-02-28",
+    "2025-03-31",
+    "2025-04-30",
+    "2025-05-31",
+    "2025-06-30",
+    "2025-07-31",
+    "2025-08-31",
+    "2025-09-30",
+    "2025-10-31",
+    "2025-12-31",
+]
+
+# Convert start and end dates to datetime objects
+start_dates = [datetime.strptime(date, "%Y-%m-%d") for date in start_dates]
+end_dates = [datetime.strptime(date, "%Y-%m-%d") for date in end_dates]
+
+# Plot settings
+fig, ax = plt.subplots(figsize=(10, 6))
+
+# Plot the timeline
+for i, task in enumerate(tasks):
+    ax.barh(task, (end_dates[i] - start_dates[i]).days, left=start_dates[i], color="skyblue", edgecolor="black")
+
+# Format x-axis
+ax.xaxis.set_major_formatter(mdates.DateFormatter("%b %Y"))
+ax.xaxis.set_major_locator(mdates.MonthLocator())
+plt.xticks(rotation=45)
+plt.xlabel("Timeline")
+plt.ylabel("Tasks")
+
+# Title and layout adjustments
+plt.title("Special Children Care App Project Timeline")
+plt.tight_layout()
+
+# Show the chart
+plt.show()

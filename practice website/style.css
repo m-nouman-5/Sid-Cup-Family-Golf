@@ -1,0 +1,319 @@
+* {
+margin: 0px;
+padding: 0px;
+box-sizing: border-box;
+font-family: 'montserrat';
+color:#fff;
+}
+
+html ,body {
+width: 100%;
+height: 100%;
+perspective: 800px;
+
+}
+
+#cursor{
+    height: 20px;
+    width:20px;
+    background-color:yellowgreen;
+    border-radius: 50%;
+    position: fixed;
+    z-index: 99;
+
+}
+
+#cursor-blur{
+    height: 400px;
+    width:400px;
+    background-color:rgba(153, 205, 50, 0.167);
+    border-radius: 50%;
+    position: fixed;
+    filter: blur(40px);
+    z-index: 9;
+}
+
+#nav{
+    width: 100%;
+    height: 145px;
+    /* background-color: red; */
+    display:flex;
+    padding: 0px 150px;
+    gap: 30px;
+    align-items: center;
+    justify-content: flex-start;
+    position: fixed;
+    z-index: 99;
+}
+
+#nav img{
+    height: 75px;
+}
+
+#nav h4{
+    text-transform: uppercase;
+    font-weight: 500px;
+}
+
+video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position:fixed;
+    z-index: -1;
+}
+
+#main{
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.482)
+}
+
+#page1{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    z-index: 10;
+}
+
+#page1 h1::before{
+    content: "EAT. DRINK. PLAY.";
+    position: absolute;
+    color: #000;
+    top: -4px;
+    left: -4px;
+    -webkit-text-stroke:2px yellowgreen;
+    z-index: -1;
+}
+
+#page1 h1{
+    font-size:80px;
+    font-weight:900;
+    position:relative;
+}
+
+#page1 h2{
+    font-size:30px;
+    font-weight:700;
+    margin-top:10px;
+    margin-bottom:20px;
+}
+
+#page1 p{
+    font-size:15px;
+    font-weight:500;
+    width:440px;
+    /* margin:14px 352px; */
+}
+
+#page2{
+    height:100vh;
+    width:100%;
+    z-index: 10;
+}
+
+#scroller{
+    /* background-color: red; */
+    white-space: nowrap;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: relative;
+    z-index: 10;
+
+}
+
+#scroller-in{
+    display:inline-block;
+    white-space: nowrap;
+    animation-name: scroll;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+
+
+}
+
+#scroller h4{
+    display:inline-block;
+    font-size: 80px;
+    font-weight: 900;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-right: 10px;
+    color: transparent;
+    transition: all linear 0.5s;
+    -webkit-text-stroke: 2px yellowgreen;
+}
+
+#scroller h4:hover{
+    color: yellowgreen;
+}
+@keyframes scroll{
+    from {
+        transform:translateX(0);
+         }
+    to{
+        transform:translateX(-100%);
+
+    }
+
+}
+
+#about-us{
+    height: 40vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0px 50px;
+    margin-top: 100px;
+    position: relative;
+    z-index: 10;
+}
+
+#about-us img{
+    height: 220px;
+    width: 220px;
+    border-radius: 22px;
+    object-fit: cover;
+}
+
+#about-us-in{
+   width: 50%;
+   text-align: center;
+   padding:0 50;
+}
+
+#about-us-in h3{
+    font-size: 50px;
+    font-weight: 800;
+    margin-bottom: 40px;
+   
+}
+
+#about-us-in p{
+    font-size: 16px;
+    line-height: 26px;
+}
+
+#card-container{
+    height: 70vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+    margin-top: 100px;
+    position: relative;
+    z-index: 10;
+
+}
+
+.card{
+    width:25%;
+    height:100%;
+    background-color: #fff;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    transition: all ease 0.6s;
+    margin-bottom: 100px;
+    
+}
+
+/* .card img{
+    height:100%;
+    width: 100%;
+    border-radius:20px;
+} */
+
+.overlay{
+    background: yellowgreen;
+    width: 100%;
+    height: 100%;
+    color: black;
+    padding-top: 160px;
+    padding-left: 20px;
+    padding-right: 20px;
+    opacity: 0;
+    transition: all ease 0.6s;
+
+    
+    }
+
+    .overlay h4{
+        color: #000;
+        font-size: 28px;
+        font-weight: 700;
+        text-transform: uppercase;
+        white-space: nowrap;
+      
+
+    }
+
+    .overlay p{
+        color: #000;
+        font-size: 16px;
+        padding-top: 10px;
+        
+    }
+     
+    .card:hover .overlay{
+        opacity: 1;
+    }
+
+    .card:hover{
+        transform: rotate3d(-1,1,0,20deg);
+    }
+
+#card1{
+    background-image: url(https://i.pinimg.com/564x/0f/35/61/0f3561018de526d6c9aad6d866ce3e71.jpg);
+}
+
+#card2{
+    background-image: url(https://i.pinimg.com/564x/e5/89/9f/e5899f84bc17f1b770f29a9340bc10f7.jpg);
+}
+
+#card3{
+    background-image: url(https://i.pinimg.com/564x/c9/4b/d5/c94bd51e1f49aa9f3b8c4ca8aa728447.jpg);
+}
+
+
+#greendiv{
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background:linear-gradient(  rgb(160, 237, 6),yellowgreen);
+    margin-top: 30%;
+
+}
+
+
+#greendiv h4{
+    width: 50%;
+   font-size: 20px;
+   font-weight: 800;
+   text-transform: uppercase;
+   line-height:40px;
+   text-align: center;
+   color: #000;
+
+}
+
+#greendiv img{
+   height: 100%;
+   object-fit: cover;
+   width: 14%;
+   opacity: 0.1;
+
+}
+
+
+
+
+
